@@ -16,6 +16,7 @@ async function connectToDevice() {
 async function connectToServer(device) {
   try {
     const server = await device.gatt.connect();
+    console.log('', server);
     updateOutput(`Connected to GATT server.`);
     return server;
   } catch (error) {
@@ -25,6 +26,7 @@ async function connectToServer(device) {
 
 // Function to retrieve the battery level
 async function getBatteryLevel(server) {
+  console.log('server::', server);
   try {
     const service = await server.getPrimaryService('battery_service');
     const characteristic = await service.getCharacteristic('battery_level');
