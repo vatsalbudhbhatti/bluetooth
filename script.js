@@ -38,6 +38,7 @@ async function getBatteryLevel(server) {
     console.log('batteryLevel:: ', batteryLevel);
     updateOutput(`Battery Level: ${batteryLevel}%`);
   } catch (error) {
+    console.log('Error:: ', error);
     updateOutput(`Error: ${error.message}`);
   }
 }
