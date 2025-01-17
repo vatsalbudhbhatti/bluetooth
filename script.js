@@ -32,6 +32,7 @@ async function getBatteryLevel(server) {
     const characteristic = await service.getCharacteristic('battery_level');
     const value = await characteristic.readValue();
     const batteryLevel = value.getUint8(0); // Read the first byte
+    console.log('batteryLevel:: ', batteryLevel);
     updateOutput(`Battery Level: ${batteryLevel}%`);
   } catch (error) {
     updateOutput(`Error: ${error.message}`);
